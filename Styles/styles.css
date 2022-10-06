@@ -44,16 +44,39 @@
         margin-top: 2rem;
     }
 
-    #Contenedor-Cards{
+    .CardJS{
+        margin: 2rem 0;
+        background-color: white;
+        padding: .8rem;
+    }
+
+    .img-card{
+        width: 100%;
+        height: 250px;
+    }
+
+    .data-name-card, .data-description-card{
+        font-size: 1.1rem;
+        text-align: center;
+        margin: 1rem 0;
+        color: #D92168;
+    }
+
+    .data-price-card-button{
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
     }
 
-    .card{
-        margin: 1rem 0;
-        width: 80%;
+    .Btn-card{
+        width: 7rem;
+        border-radius: 20px;
+        border: 2px solid #D92168;
+    }
+    
+    .Hidden{
+        border: 2px solid red;
+        display: none;
     }
 
     #Footer_Index{
@@ -189,12 +212,38 @@
         width: 42% !important;
     }
 
+    #Contenedor-Cards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .CardJS{
+        margin: 2rem 0;
+        width: 40%;
+        border-radius: 1rem;
+        padding: .7rem;
+        background-color: white;
+        border: 1px solid gray;
+    }
+
+    .Contenedor-Cards_Events{
+        min-height: 40vh;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
 }
+
+
 
 @media screen and (min-width:1024px) {
     .Imagen-Banner{
-        height: 30vh;
-        object-fit: cover;
+        height: 50vh;
+        object-fit: contain;
+        background-color: black;
+        border: none;
     }
 
     #navbarNav{
@@ -202,24 +251,6 @@
         justify-content: end;
     }
 
-    #Contenedor-Cards{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        margin-top: 2rem;
-    }
-
-    .card{
-        margin: 2rem 0;
-        width: 35%;
-        border: 1px solid rgba(0, 0, 0, 0.26);
-    }
-
-    .Img-Card{
-        object-fit: cover;
-        height: 10rem;
-    }
     
     #ContenedorBusqueda-Checks{
         display: flex;
@@ -254,6 +285,21 @@
     tbody tr td{
         width: 46% !important;
     }
+
+    #Contenedor-Cards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 2rem;
+    }
+
+    .CardJS{
+        margin: 2rem 0;
+        width: 30%;
+        border-radius: 1rem;
+        padding: .7rem;
+    }
+
 }
 
 
