@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@600&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Assistant', sans-serif;
+}
+
+@media screen and (min-width:320px) {
+    #LogoAmazingEvents{
+        width: 8rem;
+    }
+
+    #carouselExampleControlsNoTouching{
+        margin-top: 2.5rem;
+    }
+
+    .Imagen-Banner{
+        height: 12rem;
+        object-fit: cover;
+    }
+    
+    #Contenedor-Search_Index{
+        /* border: 2px solid red; */
+        padding: 1rem;
+        margin-top: 2rem;
+    }
+
+    #Contenedor-Checks_Index{
+        /* border: 2px solid red; */
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: .3rem;
+        margin-top: 1.9rem;
+    }
+    
+    .form-check-label{
+        font-size: .7rem;
+    }
+
+    #Contenedor-Checks_Index{
+        margin-top: 2rem;
+    }
+
+    #Contenedor-Cards{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card{
+        margin: 1rem 0;
+        width: 80%;
+    }
+
+    #Footer_Index{
+        /* border: 2px solid red; */
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1rem;
+        align-items: center;
+    }
+
+    #Contenedor-TituloCohort{
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    #Contenedor-Links-RedesSociales{
+        display: flex;
+        justify-content: center;
+        justify-content: space-between;
+        transition: 1s ease;
+        align-items: center;
+    }
+    
+    .Link-Footer{
+        width: 1.5rem;
+        transition: 1s ease;
+        margin: 0 5px;
+    }
+
+    #Form-Principal-Contact{
+        display: flex;
+        flex-direction: column;
+        margin-top: 4rem;
+        align-items: center;
+        padding: 2rem;
+        border: 1px solid rgba(0, 0, 0, 0.548);
+    }
+
+    .Label{
+        margin-top: 1rem;
+        color: #D92168;
+        font-size: 1.2rem;
+    }
+
+    #Input-submit{
+        margin-top: 3rem;
+    }
+
+    .Input{
+        border-radius: 12px;
+        width: 100%;
+        border-color: #D92168;
+    }
+
+    #Input-submit{
+        border-radius: 20px;
+        margin: 2rem 0;
+        width: 40%;
+        border-color: #D92168;
+        color: #D92168;
+    }
+
+    #Footer_Contact{
+        margin-top: 4rem;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    #Titulo-Stats{
+        color: #D92168;
+        text-align: center;
+        font-size: 2rem;
+        margin-top: 1rem;
+    }
+
+    .Table-Stats{
+        min-height: 10vh;
+        display: flex;
+        flex-direction: column;
+        margin: 2rem 0;
+    }
+
+    .Table-Stats thead{
+        border: 2px solid rgb(0, 0, 0);
+        padding: .5rem;
+        background-color: black;
+        color: white;
+    }
+
+    .Table-Stats tbody tr td{
+        font-size: .7rem;
+        border: 1px solid black;
+        width: 30%;
+        padding: 2px;
+    }
+
+    #Contenedor-Cards-Details{
+        /* border: 2px solid red; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+    }
+}
+
+@media screen and (min-width:425px){
+    tbody tr td{
+        width: 40% !important;
+    }
+} 
+
+@media screen and (min-width:768px) {
+    .Imagen-Banner{
+        height: 40vh;
+        object-fit: cover;
+    }
+
+    #Form-Principal-Contact{
+        border: 1px solid rgba(0, 0, 0, 0.548);
+        width: 80%;
+        margin: auto;
+        margin-top: 3rem;
+    }
+
+    tbody tr td{
+        width: 42% !important;
+    }
+
+}
+
+@media screen and (min-width:1024px) {
+    .Imagen-Banner{
+        height: 30vh;
+        object-fit: cover;
+    }
+
+    #navbarNav{
+        display: flex;
+        justify-content: end;
+    }
+
+    #Contenedor-Cards{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-top: 2rem;
+    }
+
+    .card{
+        margin: 2rem 0;
+        width: 35%;
+        border: 1px solid rgba(0, 0, 0, 0.26);
+    }
+
+    .Img-Card{
+        object-fit: cover;
+        height: 10rem;
+    }
+    
+    #ContenedorBusqueda-Checks{
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    #Footer_Index{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-around !important;
+    }
+
+    .Link-Footer{
+        width: 2rem;
+    }
+
+    tbody tr td{
+        width: 45% !important;
+    }
+
+    #Contenedor-Cards-Details{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+}
+
+@media screen and (min-width:1440px){
+    tbody tr td{
+        width: 46% !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .Anchor_Footer{
+    transition: 1s ease;
+    background-color: transparent;
+}
+
+.Anchor_Footer:hover{
+    background: none;
+    transform: scale(1.2);
+    box-shadow: 15px 10px 15px black;
+    background: rgba(0, 0, 0, 0.801);
+    border-radius: 51%;
+} */
