@@ -11,7 +11,8 @@ let Data = {
         "place":"Room A",
         "capacity":45000,
         "assistance":42756,
-        "price":5
+        "price":5,
+        "url":"details.html"
       },
       {
         _id: 2,
@@ -23,7 +24,8 @@ let Data = {
         "place":"Room A",
         "capacity":45000,
         "assistance":42756,
-        "price":10
+        "price":10,
+        "url":"details.html"
       },
       {
         _id: 3,
@@ -35,7 +37,8 @@ let Data = {
         "place":"Field",
         "capacity":82000,
         "assistance":65892,
-        "price":15
+        "price":15,
+        "url":"details.html"
       },
       {
         _id: 4,
@@ -47,7 +50,8 @@ let Data = {
         "place":"Paris",
         "capacity":8200,
         "estimate":8200,
-        "price":3500
+        "price":3500,
+        "url":"details.html"
       },
       {
         _id: 5,
@@ -59,7 +63,8 @@ let Data = {
         "place":"Room C",
         "capacity":120000,
         "assistance":110000,
-        "price":54
+        "price":54,
+        "url":"details.html"
       },
       {
         _id: 6,
@@ -71,7 +76,8 @@ let Data = {
         "place":"Room C",
         "capacity":12000,
         "estimate":9000,
-        "price":12
+        "price":12,
+        "url":"details.html"
       },
       {
         _id: 7,
@@ -83,7 +89,8 @@ let Data = {
         "place":"Room A"
         ,"capacity":138000,
         "estimate":138000,
-        "price":150
+        "price":150,
+        "url":"details.html"
       },
       {
         _id: 8,
@@ -95,7 +102,8 @@ let Data = {
         "place":"Room A",
         "capacity":138000,
         "assistance":110300,
-        "price":250
+        "price":250,
+        "url":"details.html"
         },
       {
         _id: 9,
@@ -107,7 +115,8 @@ let Data = {
         "place":"Soccer field",
         "capacity":30000,
         "assistance":25698,
-        "price":3
+        "price":3,
+        "url":"details.html"
       },
       {
         _id: 10,
@@ -119,7 +128,8 @@ let Data = {
         "place":"New York",
         "capacity":3000000,
         "assistance":2569800,
-        "price":3
+        "price":3,
+        "url":"details.html"
         },
       {
         _id: 11,
@@ -131,7 +141,8 @@ let Data = {
         "place":"Room D1",
         "capacity":150000,
         "estimate":123286,
-        "price":1
+        "price":1,
+        "url":"details.html"
       },
       {
         _id: 12,
@@ -143,7 +154,8 @@ let Data = {
         "place":"Room D6",
         "capacity":130000,
         "assistance":90000,
-        "price":100
+        "price":100,
+        "url":"details.html"
       },
       {
         _id: 13,
@@ -155,7 +167,8 @@ let Data = {
         "place":"Room D1",
         "capacity":11000,
         "assistance":9300,
-        "price":225
+        "price":225,
+        "url":"details.html"
       },
       {
         _id: 14,
@@ -167,7 +180,8 @@ let Data = {
         "place":"Room D1",
         "capacity":9000,
         "estimate":9000,
-        "price":250
+        "price":250,
+        "url":"details.html"
       }
     ]
   }

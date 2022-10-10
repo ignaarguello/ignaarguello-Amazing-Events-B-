@@ -7,6 +7,10 @@
     font-family: 'Assistant', sans-serif;
 }
 
+body{
+    background-color: rgba(182, 174, 174, 0.534);
+}
+
 @media screen and (min-width:320px) {
     #LogoAmazingEvents{
         width: 8rem;
@@ -52,14 +56,24 @@
 
     .img-card{
         width: 100%;
-        height: 250px;
+        height: 200px;
+        object-fit: contain;
     }
 
-    .data-name-card, .data-description-card{
-        font-size: 1.1rem;
+    .data-name-card{
+        font-size: 1.5rem;
         text-align: center;
         margin: 1rem 0;
         color: #D92168;
+        letter-spacing: 1px;
+    }
+
+    .data-description-card{
+        font-size: 1rem;
+        text-align: center;
+        margin: 1rem 0;
+        color: #ffffff;
+        line-height: 2.5rem;
     }
 
     .data-price-card-button{
@@ -72,6 +86,17 @@
         width: 7rem;
         border-radius: 20px;
         border: 2px solid #D92168;
+    }
+
+    .Btn-card a{
+        text-decoration: none;
+        color: #D92168;
+    }
+
+    .CardDate{
+        text-align: center;
+        color: rgb(76, 71, 71);
+        margin-top: 3rem;
     }
     
     .Hidden{
@@ -291,13 +316,49 @@
         flex-wrap: wrap;
         justify-content: space-around;
         padding: 2rem;
+        gap: 2rem;
     }
 
     .CardJS{
         margin: 2rem 0;
-        width: 30%;
+        width: 27%;
         border-radius: 1rem;
         padding: .7rem;
+        background-color: rgba(7, 6, 6, 0.925);
+        border: 3px solid #D92168;
+        box-shadow: 25px 13px 25px black;
+    }
+
+    .data-price-card-button{
+        color: rgb(194, 190, 190);
+    }
+
+    .Btn-card{
+        transition: 1s ease;
+        width: 8rem;
+        background-color: rgb(194, 190, 190);
+    }
+
+    .Btn-card:hover{
+        width: 10rem;
+        padding: 1px;
+        background-color: black;
+    }
+
+    .Btn-card a:hover{
+        color: white;
+    }
+
+
+    .Anchor_Footer{
+        transition: 1s ease;
+        background-color: transparent;
+    }
+    
+    .Anchor_Footer:hover{
+        background: none;
+        transform: scale(1.2);
+        border-radius: 51%;
     }
 
 }
@@ -333,15 +394,3 @@
 
 
 
-/* .Anchor_Footer{
-    transition: 1s ease;
-    background-color: transparent;
-}
-
-.Anchor_Footer:hover{
-    background: none;
-    transform: scale(1.2);
-    box-shadow: 15px 10px 15px black;
-    background: rgba(0, 0, 0, 0.801);
-    border-radius: 51%;
-} */

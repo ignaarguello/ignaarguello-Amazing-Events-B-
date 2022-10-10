@@ -17,10 +17,11 @@ function ImprimirCards(array, contenedor){
                         <p class="text-gray-700 text-base data-description-card">
                         - ${evento.description} -
                         </p>
+                        <h4 class='CardDate'>Date: ${evento.date}</h4>
                       </div>
                       <div class="px-6 pt-4 pb-2 data-price-card-button">
                         <h3>${evento.price}$</h3>
-                        <button class='Btn-card'>Read More</button>
+                        <button class='Btn-card'><a href="${evento.url}">Read More</a></button>
                       </div>
                       </div>`
             
