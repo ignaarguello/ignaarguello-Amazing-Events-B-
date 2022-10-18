@@ -2,7 +2,6 @@
 const DataPrincipal = Data.events
 const ContenedorCardJS = document.querySelector('#Contenedor-Cards')
 
-
 //Function para renderizar todas las cards
 function RenderCards(){
   let Render = DataPrincipal.forEach((element) => {
@@ -21,7 +20,7 @@ function RenderCards(){
     </div>
     <div class="px-6 pt-4 pb-2" id='ContenedorDataPrice-ButtonCard'>
         <h3 id='PriceCard'>${element.price}$</h3>
-        <button id='Btn-card'><a href="${element.url}">+Read More</a></button>
+        <button id='Btn-card'><a href="details.html?=${element.id}">+Read More</a></button>
     </div>
     </div>`
     ContenedorCardJS.appendChild(CardJS)
@@ -44,7 +43,6 @@ DataCategorySet.forEach((element)=>{
 
     <label id='LabelJS' for="${element}">${element}</label>
     <input class='InputCheck${element}' type="checkbox" value="${element}">
-  
     `
 
     ContenedorChecksJS.appendChild(DivChecksJS)
@@ -53,8 +51,6 @@ DataCategorySet.forEach((element)=>{
 
 //Hacemos el filtro de las card por upcoming
 let dataFilterUpcoming = DataPrincipal.filter(element => element.date > Data.currentDate)
-
-console.log(dataFilterUpcoming)
 
 //Function que renderizadora segun el parametro que reciba
 function RenderForFilter(param){
@@ -76,7 +72,7 @@ function RenderForFilter(param){
   </div>
   <div class="px-6 pt-4 pb-2" id='ContenedorDataPrice-ButtonCard'>
       <h3 id='PriceCard'>${element.price}$</h3>
-      <button id='Btn-card'><a href="${element.url}">+Read More</a></button>
+      <button id='Btn-card'><a href="details.html?=${element.id}">+Read More</a></button>
   </div>
   </div>
     `
@@ -126,8 +122,7 @@ RenderForFilter(dataFilterUpcoming)
      return datosFiltradosFinales
    }
    
-
-   //Function "FINAL" que renderiza y borra los eventos de los checkbox
+  //Function "FINAL" que renderiza y borra los eventos de los checkbox
    function FunRenderFinalForEvent(target, param){
        if(target.checked){
          ContenedorCardJS.innerHTML = ``
@@ -148,8 +143,6 @@ RenderForFilter(dataFilterUpcoming)
              RenderForFilter(dataFilterUpcoming)
            }
    }
-
-
 
 //*Evento Checkbox Foor Fair
  CheckFoodFair.addEventListener('change', (event) => {
@@ -188,7 +181,6 @@ RenderForFilter(dataFilterUpcoming)
 
 
  //? Evento del Input Search
-  //? Evento del Input Search
 
   //Function filter por name
   function FilterName(array, value){
