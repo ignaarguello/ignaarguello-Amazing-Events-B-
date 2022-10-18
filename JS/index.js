@@ -1,8 +1,9 @@
 //*Variables que guarda la data
-const DataFinal = Data.events
+const DataPrincipal = Data.events
 
+//Function para renderizar todas las cards
 function RenderCards(){
-    let Render = DataFinal.forEach((element)=>{
+    let Render = DataPrincipal.forEach((element) => {
     let CardJS = document.createElement('div')
     CardJS.className = 'CardJS'
     CardJS.innerHTML += `
@@ -18,7 +19,7 @@ function RenderCards(){
       </div>
       <div class="px-6 pt-4 pb-2" id='ContenedorDataPrice-ButtonCard'>
           <h3 id='PriceCard'>${element.price}$</h3>
-          <button id='Btn-card'><a href="${element.url}">Read More</a></button>
+          <button id='Btn-card'><a href="${element.url}">+Read More</a></button>
       </div>
       </div>`
       ContenedorCardJS.appendChild(CardJS)
@@ -28,9 +29,9 @@ function RenderCards(){
 
 
 //*Variables correspondientes a los checkbox dinamicos
-const ContenedorChecksJS = document.querySelector('#Contenedor-Checks_Index');
-const DataCategory = DataFinal.map(element => element.category)
-const DataCategorySet = new Set([...DataCategory])
+const ContenedorChecksJS = document.querySelector('#Contenedor-Checks');
+const DataCategory = DataPrincipal.map(element => element.category)
+const DataCategorySet = new Set([...DataCategory].sort())
 
 
 //?Render de los checkbox dinamicos
@@ -50,9 +51,9 @@ DataCategorySet.forEach((element)=>{
 
 
 //*Variable y Render de las Card en Index
-const ContenedorCardJS = document.querySelector('#Contenedor-Card-Index');
+const ContenedorCardJS = document.querySelector('#Contenedor-Cards');
 
-DataFinal.forEach((element)=>{
+DataPrincipal.forEach((element)=>{
   
   let CardJS = document.createElement('div')
   CardJS.className = 'CardJS'
@@ -70,7 +71,7 @@ DataFinal.forEach((element)=>{
     </div>
     <div class="px-6 pt-4 pb-2" id='ContenedorDataPrice-ButtonCard'>
         <h3 id='PriceCard'>${element.price}$</h3>
-        <button id='Btn-card'><a href="${element.url}">Read More</a></button>
+        <button id='Btn-card'><a href="${element.url}">+Read More</a></button>
     </div>
     </div>`
 
@@ -88,117 +89,151 @@ DataFinal.forEach((element)=>{
   const CheckCinema = document.querySelector('.InputCheckCinema')
 
   
+  //Variable del array de eventos filtrados
   let eventosFiltrados = []
 
-  function Filter(value){
+  //Function inicial del filter, nos devuelve los objetos y el lenght del array de filtrados
+  function Filter(array, value){
       //Filtra segun el evento
-      let dataFilter = DataFinal.filter(element => element.category.includes(value))
-      
-      eventosFiltrados.push(dataFilter)  
+      let dataFilterPush = array.filter(element => element.category.includes(value));
+      let dataFilterPop = array.filter(element => element.category.includes(value)).length;
+      let dataFilterLength = dataFilterPop;
+      return{
+        dataFilterPop,
+        dataFilterPush,
+        dataFilterLength
+      }
+    }
 
-      eventosFiltrados.forEach(element => element.forEach((element)=>{
+    //Function que renderizadora segun el parametro que reciba
+    function RenderForFilter(param){
+      ContenedorCardJS.innerHTML = ``
+      param.forEach((element) => {
         let CardJS = document.createElement('div')
         CardJS.className = 'CardJS'
-        
+
         CardJS.innerHTML += `
         <div class="max-w-sm rounded overflow-hidden shadow-lg">
-          <img id="ImagenCard" src="${element.image}" alt="Sunset in the mountains">
-        <div class="px-6 py-4" id='ContenedorBodyCard'>
-        <div class="font-bold text-xl mb-2" id='DataNameCard'>${element.name}</div>
-          <p class="text-gray-700 text-base" id='DataDescriptionCard'>
-            - ${element.description} -
-          </p>
-          <h3 id='CardCategory'>${element.category}</h3>
-          <h4 id='CardDate'>Date: ${element.date}</h4>
-        </div>
-        <div class="px-6 pt-4 pb-2" id='ContenedorDataPrice-ButtonCard'>
+        <img id="ImagenCard" src="${element.image}" alt="Sunset in the mountains">
+      <div class="px-6 py-4" id='ContenedorBodyCard'>
+      <div class="font-bold text-xl mb-2" id='DataNameCard'>${element.name}</div>
+        <p class="text-gray-700 text-base" id='DataDescriptionCard'>
+          - ${element.description} -
+        </p>
+        <h3 id='CardCategory'>${element.category}</h3>
+        <h4 id='CardDate'>Date: ${element.date}</h4>
+      </div>
+      <div class="px-6 pt-4 pb-2" id='ContenedorDataPrice-ButtonCard'>
           <h3 id='PriceCard'>${element.price}$</h3>
-          <button id='Btn-card'><a href="${element.url}">Read More</a></button>
-        </div>
-      </div>`
-      ContenedorCardJS.appendChild(CardJS)
-      }))
+          <button id='Btn-card'><a href="${element.url}">+Read More</a></button>
+      </div>
+      </div>
+        `
 
-      console.log(eventosFiltrados)
+        ContenedorCardJS.appendChild(CardJS)
+      })
+    }
+
+    //Function que pushea la data al array de eventos filtrados
+    function PushData(param, param2){
+        param.forEach(element => param2.push(element))
+    }
+
+    function DeleteXRender(array, value){
+      let dataFilter = Filter(array, value)
+      console.log(dataFilter.dataFilterPush)
+      let datosFiltradosFinales = eventosFiltrados.filter(element => element.category != value)
       
-      return eventosFiltrados
-  }
+      return datosFiltradosFinales
+    }
+    
+
+    //Function "FINAL" que renderiza y borra los eventos de los checkbox
+    function FunRenderFinalForEvent(target, param){
+        if(target.checked){
+          ContenedorCardJS.innerHTML = ``
+          let VarFilter = Filter(DataPrincipal, param)
+          PushData(VarFilter.dataFilterPush, eventosFiltrados)
+          RenderForFilter(eventosFiltrados)
+          console.log('IF',eventosFiltrados)
+        } 
+          else{
+             let datoFinal =  DeleteXRender(eventosFiltrados, event.target.value)
+             eventosFiltrados = datoFinal;
+             console.log('EVENTO FINAL FINAL', eventosFiltrados)
+             RenderForFilter(eventosFiltrados)
+          }
+            
+          if(eventosFiltrados.length === 0){
+            ContenedorCardJS.innerHTML = ``
+              RenderCards()
+            }
+    }
+
 
 
 //*Evento Checkbox Foor Fair
   CheckFoodFair.addEventListener('change', (event) => {
-    if(CheckFoodFair.checked){
-        ContenedorCardJS.innerHTML = ``
-        Filter(event.target.value)
-      } 
-      else{
-        RenderCards()
-      }
+    FunRenderFinalForEvent(CheckFoodFair, event.target.value)
   })
 
   //*Evento Checkbox Museum
   CheckMuseum.addEventListener('change', (event) => {
-    if(CheckMuseum.checked){
-        ContenedorCardJS.innerHTML = ``
-        Filter(event.target.value)
-      }
-      else{
-        RenderCards()
-      }
+    FunRenderFinalForEvent(CheckMuseum, event.target.value)
   })
 
   //*Evento Checkbox Costume Party
   CheckCostumeParty.addEventListener('change', (event) => {
-    if(CheckCostumeParty.checked){
-        ContenedorCardJS.innerHTML = ``
-        Filter(event.target.value)
-      }
-      else{
-        RenderCards()
-      }
+    FunRenderFinalForEvent(CheckCostumeParty, event.target.value)
   })
 
   //*Evento Checkbox Music Concert
   CheckMusicConcert.addEventListener('change', (event) => {
-    if(CheckMusicConcert.checked){
-        ContenedorCardJS.innerHTML = ``
-        Filter(event.target.value)
-      }
-      else{
-        RenderCards()
-      }
+    FunRenderFinalForEvent(CheckMusicConcert, event.target.value)
   })
 
   //*Evento Checkbox Race
   CheckRace.addEventListener('change', (event) => {
-    if(CheckRace.checked){
-        ContenedorCardJS.innerHTML = ``
-        Filter(event.target.value)
-      }
-      else{
-        RenderCards()
-      }
+    FunRenderFinalForEvent(CheckRace, event.target.value)
   })
 
   //*Evento Checkbox Book Exchange
   CheckBookExchange.addEventListener('change', (event) => {
-    if(CheckBookExchange.checked){
-        ContenedorCardJS.innerHTML = ``
-        Filter(event.target.value)
-      }
-      else{
-        RenderCards()
-      }
+    FunRenderFinalForEvent(CheckBookExchange, event.target.value)
   })
 
   //*Evento Checkbox Cinema
   CheckCinema.addEventListener('change', (event) => {
-    if(CheckCinema.checked){
-        ContenedorCardJS.innerHTML = ``
-        Filter(event.target.value)
-      }
-      else{
-        RenderCards()
-      }
+    FunRenderFinalForEvent(CheckCinema, event.target.value)
   })
+
+
+  //? Evento del Input Search
+  //? Evento del Input Search
+
+  //Function filter por name
+  function FilterName(array, value){
+    //Filtra segun el evento
+    let dataFilterPush = array.filter(element => element.name.toLowerCase().includes(value.toLowerCase()));
+    return dataFilterPush
+  
+  }
+
+  //Variable del input de la barra de busqueda
+  const VarInputSearch = document.querySelector('#InputSearch')
+
+  VarInputSearch.addEventListener('input', (event) => {
+      if(eventosFiltrados.length == 0){
+          let dataFilter = FilterName(DataPrincipal, event.target.value)
+          RenderForFilter(dataFilter)
+        }
+
+        if (eventosFiltrados.length >= 1){
+          console.log('EVENTOS FILTRADOS', eventosFiltrados)
+          let dataFilter2 = FilterName(eventosFiltrados, event.target.value)
+          RenderForFilter(dataFilter2)
+        }
+  })
+  
+  
 
