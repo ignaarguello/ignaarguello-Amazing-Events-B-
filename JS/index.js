@@ -45,7 +45,7 @@ DataCategorySet.forEach((element) => {
 
   DivChecksJS.innerHTML += `
 
-    <label id='LabelJS' for="${element}">${element}</label>
+    <label class='LabelJS' for="${element}">${element}</label>
     <input class='InputCheck${element}' type="checkbox" value="${element}">
   
     `
@@ -74,8 +74,8 @@ function Filter(array, value) {
   let dataFilterPop = array.filter(element => element.category.includes(value)).length;
   let dataFilterLength = dataFilterPop;
   return {
-    dataFilterPop,
     dataFilterPush,
+    dataFilterPop,
     dataFilterLength
   }
 }
@@ -131,7 +131,7 @@ function FunRenderFinalForEvent(target, param) {
     RenderForFilter(eventosFiltrados)
   }
   else {
-    let datoFinal = DeleteXRender(eventosFiltrados, event.target.value)
+    let datoFinal = DeleteXRender(eventosFiltrados, param)
     eventosFiltrados = datoFinal;
     RenderForFilter(eventosFiltrados)
   }
@@ -203,6 +203,12 @@ VarInputSearch.addEventListener('input', (event) => {
   if (eventosFiltrados.length >= 1) {
     let dataFilter2 = FilterName(eventosFiltrados, event.target.value)
     RenderForFilter(dataFilter2)
+  }
+
+  let ValueFilterName = FilterName(DataPrincipal, event.target.value)
+  
+  if(ValueFilterName.length === 0){
+    ContenedorCardJS.innerHTML = `<h2>'Ops, Event not found'</h2>`
   }
 })
 
