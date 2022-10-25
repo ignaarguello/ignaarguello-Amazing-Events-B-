@@ -6,7 +6,7 @@ const contenedorChecksJS = document.querySelector('#Contenedor-Checks');
 //*Funcion asincronica del fetch de la api
 async function startRender(){
     try{
-        let resData = await fetch('https://mh-amazing.herokuapp.com/amazing?time=past');
+        let resData = await fetch('https://mh-amazing.herokuapp.com/amazing');
         let data = await resData.json();
         let dataDeEventos = data.events;
         RenderForFilter(dataDeEventos, contenedorCardJS)
