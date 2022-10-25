@@ -15,7 +15,7 @@
   }
 
   #carouselExampleControlsNoTouching {
-    margin-top: 2.5rem;
+    margin-top: 1rem;
   }
 
   .Imagen-Banner {
@@ -77,9 +77,9 @@
   }
 
   #DataDescriptionCard {
-    font-size: 1rem;
+    font-size: .8rem;
     margin: 1rem 0;
-    line-height: 2.5rem;
+    line-height: 1.5rem;
     text-align: center;
     color: whitesmoke;
     letter-spacing: 2px;
@@ -127,7 +127,7 @@
       color: #d92168;
       text-align: center;
       font-size: 2.1rem;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
   }
 
   #ContenedorCardTopDetails {
@@ -289,12 +289,104 @@
     align-items: center;
     margin-top: 2rem;
   }
+  
+  tr td {
+    width: 33vw !important;
+  }
+
+  #T-Body-2{
+    display: flex;
+  }
+
+  #T-Body-3{
+    display: flex;
+  }
+
+  #JS-TR-EventsByCategory-1{
+    display: flex;
+    flex-direction: column;
+  }
 }
 
+#JS-TR-EventsByCategory-2{
+  display: flex;
+  flex-direction: column;
+}
+
+#JS-TR-EventsByCategory-3{
+  display: flex;
+  flex-direction: column;
+}
+
+#JS-TR-3-Categories{
+  display: flex; 
+  flex-direction: column;
+}
+
+#JS-TR-3-Revenues{
+  display: flex; 
+  flex-direction: column;
+}
+
+#JS-TR-3-PerOfAthendance{
+  display: flex; 
+  flex-direction: column;
+}
+
+.Titulo-Table{
+  color: #d92168;
+  text-align: center;
+  margin-top: 2rem;
+}
+  
+
 @media screen and (min-width:425px) {
-  tbody tr td {
-    width: 40% !important;
+    tr td {
+    width: 33vw !important;
   }
+
+  #T-Body-2{
+    display: flex;
+  }
+
+  #T-Body-3{
+    display: flex;
+  }
+
+  #JS-TR-EventsByCategory-1{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+#JS-TR-EventsByCategory-2{
+  display: flex;
+  flex-direction: column;
+}
+
+#JS-TR-EventsByCategory-3{
+  display: flex;
+  flex-direction: column;
+}
+
+#JS-TR-3-Categories{
+  display: flex; 
+  flex-direction: column;
+}
+
+#JS-TR-3-Revenues{
+  display: flex; 
+  flex-direction: column;
+}
+
+#JS-TR-3-PerOfAthendance{
+  display: flex; 
+  flex-direction: column;
+}
+
+
+#ContenedorRows{
+  border: 3px solid red;
 }
 
 @media screen and (min-width: 768px) {
@@ -308,10 +400,6 @@
     width: 80%;
     margin: auto;
     margin-top: 3rem;
-  }
-
-  tbody tr td {
-    width: 42% !important;
   }
 
   .Imagen-Banner {
@@ -371,6 +459,11 @@
     width: 30%;
 }
 
+#DataDescriptionCard{
+  height: 9rem;
+  padding: 1rem;
+}
+
 
 @media screen and (min-width: 1024px) {
   .Imagen-Banner {
@@ -402,10 +495,6 @@
     width: 2rem;
   }
 
-  tbody tr td {
-    width: 45% !important;
-  }
-
   #Contenedor-Cards-Details {
     display: flex;
     flex-direction: row;
@@ -415,9 +504,6 @@
 }
 
 @media screen and (min-width: 1440px) {
-  tbody tr td {
-    width: 46% !important;
-  }
 
   #Contenedor-Cards {
     display: flex;
@@ -465,5 +551,9 @@
     background: none;
     transform: scale(1.2);
     border-radius: 51%;
+  }
+
+  #JS-TR-EventsByCategory{
+    border: 2px solid red !important;
   }
 }
