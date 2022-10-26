@@ -126,8 +126,15 @@
   .Titulo-Page{
       color: #d92168;
       text-align: center;
-      font-size: 2.1rem;
-      margin-top: 1.5rem;
+      font-size: 1.6rem;
+      margin: 2rem 0;
+  }
+
+  #Titulo-Ups{
+    color: #d92168;
+    text-align: center;
+    margin: 3.5rem 0;
+    font-size: 1.7rem;
   }
 
   #ContenedorCardTopDetails {

@@ -17,7 +17,6 @@ async function startRenderDetails(){
 startRenderDetails()
 
 
-
 function RenderEventDetail(param) {
   //Variable del location
   let QueryID = location.search.slice(4);

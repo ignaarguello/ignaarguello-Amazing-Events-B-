@@ -68,7 +68,7 @@ function FilterName(array, value) {
   return dataFilterPush;
 }
 
-//?Fuction que filtra por el value del checkbox, agrega evento y renderiza
+//?Fuction que filtra por el value del checkbox, value del searchbar, agrega evento y renderiza
 function Filter(param, contenedor) {
   let eventosFiltrados = [];
   let varChecks = document.querySelectorAll(".InputCheck");
@@ -110,7 +110,7 @@ function Filter(param, contenedor) {
     let ValueFilterName = FilterName(param, event.target.value);
 
     if (ValueFilterName.length === 0) {
-      contenedor.innerHTML = `<h2>'Ops, Event not found'</h2>`;
+      contenedor.innerHTML = `<h2 id="Titulo-Ups">'Ops, Event not found'</h2>`;
     }
   });
 }
