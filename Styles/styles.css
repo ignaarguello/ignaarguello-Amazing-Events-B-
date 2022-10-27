@@ -9,6 +9,10 @@
   font-family: "Raleway", sans-serif;
 }
 
+body{
+  background-color:rgb(31, 29, 29);
+}
+
 @media screen and (min-width: 320px)  {
   #LogoAmazingEvents {
     width: 8rem;
@@ -130,6 +134,10 @@
       margin: 2rem 0;
   }
 
+  .LabelJS{
+    color: white;
+  }
+  
   #Titulo-Ups{
     color: #d92168;
     text-align: center;
@@ -260,6 +268,20 @@
     justify-content: space-around;
   }
 
+  .Footer{
+    background-color: black;
+    color: #d92168;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    padding: 1rem;
+    align-items: center;
+  }
+
+  #TituloCohort{
+    font-size: 1.3rem;
+  }
+
   #Titulo-Stats {
     color: #d92168;
     text-align: center;
@@ -286,6 +308,13 @@
     border: 1px solid black;
     width: 30%;
     padding: 2px;
+  }
+
+  .TD-JS{
+    color: #d92168;
+    text-align: center;
+    font-size: 85% !important;
+    font-weight: 900;
   }
 
   #Contenedor-Cards-Details {
@@ -341,7 +370,7 @@
 }
 
 .Titulo-Table{
-  color: #d92168;
+  color: white;
   text-align: center;
   margin-top: 2rem;
 }
@@ -411,7 +440,7 @@
 
   .Imagen-Banner {
     height: 60vh;
-    object-fit: contain;
+    object-fit: cover;
     background-color: black;
   }
 
@@ -474,8 +503,8 @@
 
 @media screen and (min-width: 1024px) {
   .Imagen-Banner {
-    height: 50vh;
-    object-fit: contain;
+    height: 62vh;
+    object-fit: cover;
     background-color: black;
     border: none;
   }
@@ -492,7 +521,7 @@
     justify-content: space-around;
   }
 
-  #Footer_Index {
+  .Footer {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-around !important;
@@ -507,6 +536,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+  }
+
+  #TituloCohort{
+    font-size: 1.6rem;
   }
 }
 
@@ -562,5 +595,9 @@
 
   #JS-TR-EventsByCategory{
     border: 2px solid red !important;
+  }
+
+  #TituloCohort{
+    font-size: 2rem;
   }
 }

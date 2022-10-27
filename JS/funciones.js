@@ -79,13 +79,14 @@ function Filter(param, contenedor) {
           element.category.includes(event.target.value)
         );
         PushData(varFilter, eventosFiltrados);
+        console.log('desde if', eventosFiltrados)
         RenderForFilter(eventosFiltrados, contenedor);
       } else {
         let datoFinal = DeleteXRender(eventosFiltrados, event.target.value);
         eventosFiltrados = datoFinal;
         RenderForFilter(eventosFiltrados, contenedor);
       }
-
+      
       if (eventosFiltrados.length === 0) {
         contenedor.innerHTML = ``;
         RenderForFilter(param, contenedor);
@@ -100,17 +101,28 @@ function Filter(param, contenedor) {
     if (eventosFiltrados.length === 0) {
       let dataFilter = FilterName(param, event.target.value);
       RenderForFilter(dataFilter, contenedor);
+      if(dataFilter.length === 0){
+        contenedor.innerHTML = `<h2 id="Titulo-Ups">'Ops, Event not found'</h2>`;
+      }
     }
 
     if (eventosFiltrados.length >= 1) {
       let dataFilter2 = FilterName(eventosFiltrados, event.target.value);
       RenderForFilter(dataFilter2, contenedor);
+      console.log(dataFilter2)
+      if(dataFilter2.length === 0){
+        contenedor.innerHTML = `<h2 id="Titulo-Ups">'Ops, Event not found'</h2>`;
+      }
     }
 
-    let ValueFilterName = FilterName(param, event.target.value);
-
-    if (ValueFilterName.length === 0) {
-      contenedor.innerHTML = `<h2 id="Titulo-Ups">'Ops, Event not found'</h2>`;
+    let ValueFilterName = FilterName(eventosFiltrados, event.target.value).length
+    console.log('valueFilter', ValueFilterName)
+    
+    let targetValue = event.target.value.length
+    
+    if(targetValue == 0 && eventosFiltrados.length === 0){
+      RenderForFilter(param, contenedor)
     }
   });
+  
 }

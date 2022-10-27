@@ -10,9 +10,9 @@ async function getDataEventsStalistics(){
         let moreCapacity = getEventMoreCapacity(dataDeEventos)
 
         const TR_EventStalistics = document.querySelector('#JS-TR-EventStalistics');
-        TR_EventStalistics.innerHTML += `<td>${moreAthendance}</td>`
-        TR_EventStalistics.innerHTML += `<td>${lowestAthendance}</td>`
-        TR_EventStalistics.innerHTML += `<td>${moreCapacity}</td>`
+        TR_EventStalistics.innerHTML += `<td class='TD-JS'>${moreAthendance}</td>`
+        TR_EventStalistics.innerHTML += `<td class='TD-JS'>${lowestAthendance}</td>`
+        TR_EventStalistics.innerHTML += `<td class='TD-JS'>${moreCapacity}</td>`
         
 }
     catch{
@@ -44,24 +44,33 @@ function getEventMoreCapacity(array){
 }
 
 //? Table Events Upcoming Stadistics by category
-async function getDataEventsStadisticsByCategory(){
+async function getDataEventsStadisticsByCategoryUpcoming(){
     try{
         let resData = await fetch('https://mh-amazing.herokuapp.com/amazing?time=upcoming');
         let data = await resData.json();
         let dataDeEventos = data.events;
-        console.log('Data de eventos 2',dataDeEventos)
-
-        getEventsCategoriesUpcoming(dataDeEventos)
-        getRenuevesByEventsUpcoming(dataDeEventos)
-        percentajeOfAthendance(dataDeEventos)
+        console.log('Data de eventos upcoming',dataDeEventos)
         
-}
+        getEventsCategoriesUpcoming(dataDeEventos)
+        getRenuevesByEventsUpcoming(dataDeEventos, 'Party')
+        getRenuevesByEventsUpcoming(dataDeEventos, 'Books')
+        getRenuevesByEventsUpcoming(dataDeEventos, 'Cinema')
+        getRenuevesByEventsUpcoming(dataDeEventos, 'Race')
+        getRenuevesByEventsUpcoming(dataDeEventos, 'Museum')
+        getRenuevesByEventsUpcoming(dataDeEventos, 'Concert')
+        percentajeOfAthendance(dataDeEventos, 'Party')
+        percentajeOfAthendance(dataDeEventos, 'Books')
+        percentajeOfAthendance(dataDeEventos, 'Cinema')
+        percentajeOfAthendance(dataDeEventos, 'Race')
+        percentajeOfAthendance(dataDeEventos, 'Museum')
+        percentajeOfAthendance(dataDeEventos, 'Concert')
+    }
     catch{
         console.log({error:true})
     }
 }
 
-getDataEventsStadisticsByCategory()
+getDataEventsStadisticsByCategoryUpcoming()
 
 
 function getEventsCategoriesUpcoming(array){
@@ -69,69 +78,82 @@ function getEventsCategoriesUpcoming(array){
     let mapCategory = array.map(element => element.category)
     let mapCategorySet = new Set(...[mapCategory])
     mapCategorySet.forEach((element)=>{
-        TR_EventsByCategory1.innerHTML += `<td class="TD-2">${element}</td>`
+        TR_EventsByCategory1.innerHTML += `<td class="TD-JS">${element}</td>`
     })
 }
 
-function getRenuevesByEventsUpcoming(array){
-    array.forEach((element)=>{
-        const TR_EventsByCategory2 = document.querySelector('#JS-TR-EventsByCategory-2')
-        let priceEstimated = element.estimate*element.price
-        TR_EventsByCategory2.innerHTML += `<td class="TD-2">${priceEstimated}$</td>`
-    })
+function getRenuevesByEventsUpcoming(array,param){
+    const TR_EventsByCategory2 = document.querySelector('#JS-TR-EventsByCategory-2')
+    let filter = array.filter(e => e.category.includes(param))
+    let mapFilterRenueves = filter.map(e => e.price * e.estimate)
+    let reduceRenueves = mapFilterRenueves.reduce((acc,elem) => acc + elem)
+    TR_EventsByCategory2.innerHTML += `<td class="TD-JS">${reduceRenueves} $</td>`
+    return reduceRenueves
 }
 
-function percentajeOfAthendance(array){
-    array.forEach((element)=>{
-        const TR_EventsByCategory3 = document.querySelector('#JS-TR-EventsByCategory-3')
-        let percentajeOfAthendance = (element.estimate*element.capacity / 100).toString().slice(0,2)
-        TR_EventsByCategory3.innerHTML += `<td class="TD-2">${percentajeOfAthendance} % </td>`
-    })
+function percentajeOfAthendance(array,param){
+    const TR_EventsByCategory3 = document.querySelector('#JS-TR-EventsByCategory-3')
+    let filter = array.filter(e => e.category.includes(param))
+    let mapFilterPercentaje = filter.map(e => e.estimate*e.capacity/100)
+    let reducePercentaje = mapFilterPercentaje.reduce((acc,elem) => acc + elem / 100).toString().slice(0,2)
+    TR_EventsByCategory3.innerHTML += `<td class="TD-JS">${reducePercentaje} % </td>`
 }
 
 
 //? Table Events Past Stadistics by category
-async function getDataEventsPastStadisticsByCategory(){
+async function getDataEventsPastStadisticsByCategoryPast(){
     try{
         let resData = await fetch('https://mh-amazing.herokuapp.com/amazing?time=past');
         let data = await resData.json();
         let dataDeEventos = data.events;
-        console.log('Data de eventos 2',dataDeEventos)
+        console.log('Data de eventos past 2',dataDeEventos)
 
-        getEventsPastCategoriesUpcoming(dataDeEventos)
-        getRenuevesByEventsPastUpcoming(dataDeEventos)
-        percentajePastOfAthendance(dataDeEventos)
-        
-}
+        getEventsPastCategories(dataDeEventos)
+        getRenuevesPastBy(dataDeEventos, 'Cinema')
+        getRenuevesPastBy(dataDeEventos, 'Concert')
+        getRenuevesPastBy(dataDeEventos, 'Food')
+        getRenuevesPastBy(dataDeEventos, 'Race')
+        getRenuevesPastBy(dataDeEventos, 'Books')
+        getRenuevesPastBy(dataDeEventos, 'Museum')
+        getRenuevesPastBy(dataDeEventos, 'Party')
+        percentajePastOfAthendance(dataDeEventos, 'Cinema')
+        percentajePastOfAthendance(dataDeEventos, 'Concert')
+        percentajePastOfAthendance(dataDeEventos, 'Food')
+        percentajePastOfAthendance(dataDeEventos, 'Race')
+        percentajePastOfAthendance(dataDeEventos, 'Books')
+        percentajePastOfAthendance(dataDeEventos, 'Museum')
+        percentajePastOfAthendance(dataDeEventos, 'Party')
+    }
     catch{
         console.log({error:true})
     }
 }
 
-getDataEventsPastStadisticsByCategory()
+getDataEventsPastStadisticsByCategoryPast()
 
 
-function getEventsPastCategoriesUpcoming(array){
+function getEventsPastCategories(array){
     const TR_3_Categories = document.querySelector('#JS-TR-3-Categories')
     let mapCategory = array.map(element => element.category)
     let mapCategorySet = new Set(...[mapCategory])
     mapCategorySet.forEach((element)=>{
-        TR_3_Categories.innerHTML += `<td class="TD-2">${element}</td>`
+        TR_3_Categories.innerHTML += `<td class="TD-JS">${element}</td>`
     })
 }
 
-function getRenuevesByEventsPastUpcoming(array){
-    array.forEach((element)=>{
-        const TR_3_Revenues = document.querySelector('#JS-TR-3-Revenues')
-        let priceEstimated = element.assistance*element.price
-        TR_3_Revenues.innerHTML += `<td class="TD-2">${priceEstimated}$</td>`
-    })
+function getRenuevesPastBy(array,param){
+    const TR_EventsByCategory2 = document.querySelector('#JS-TR-3-Revenues')
+    let filter = array.filter(e => e.category.includes(param))
+    let mapFilterRenueves = filter.map(e => e.price * e.assistance)
+    let reduceRenueves = mapFilterRenueves.reduce((acc,elem) => acc + elem)
+    TR_EventsByCategory2.innerHTML += `<td class="TD-JS">${reduceRenueves} $</td>`
+    return reduceRenueves
 }
 
-function percentajePastOfAthendance(array){
-    array.forEach((element)=>{
-        const TR_3_PerOfAthendance = document.querySelector('#JS-TR-3-PerOfAthendance')
-        let percentajeOfAthendance = (element.assistance*element.capacity / 100).toString().slice(0,2)
-        TR_3_PerOfAthendance.innerHTML += `<td class="TD-2">${percentajeOfAthendance} % </td>`
-    })
+function percentajePastOfAthendance(array,param){
+    const TR_EventsByCategory3 = document.querySelector('#JS-TR-3-PerOfAthendance')
+    let filter = array.filter(e => e.category.includes(param))
+    let mapFilterPercentaje = filter.map(e => e.assistance*e.capacity/100)
+    let reducePercentaje = mapFilterPercentaje.reduce((acc,elem) => acc + elem / 100).toString().slice(0,2)
+    TR_EventsByCategory3.innerHTML += `<td class="TD-JS">${reducePercentaje} % </td>`
 }
