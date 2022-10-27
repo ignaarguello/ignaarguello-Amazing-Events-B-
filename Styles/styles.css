@@ -313,8 +313,13 @@ body{
   .TD-JS{
     color: #d92168;
     text-align: center;
-    font-size: 85% !important;
+    font-size: 100% !important;
     font-weight: 900;
+  }
+
+  .TD-Title{
+    text-align: center;
+    font-size: .8rem;
   }
 
   #Contenedor-Cards-Details {
@@ -500,6 +505,11 @@ body{
   padding: 1rem;
 }
 
+.TD-Title{
+  text-align: center;
+  font-size: 1rem;
+}
+
 
 @media screen and (min-width: 1024px) {
   .Imagen-Banner {
@@ -599,5 +609,10 @@ body{
 
   #TituloCohort{
     font-size: 2rem;
+  }
+
+  .TD-Title{
+    text-align: center;
+    font-size: 1.1rem;
   }
 }
